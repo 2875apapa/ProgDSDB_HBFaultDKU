@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+  fault_detector:
+    build:
+      context: .
+      dockerfile: fault_detector/Dockerfile
+    ports:
+      - "8080:1234"
+    container_name: fault_detector
+    restart: always
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    container_name: zookeeper
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    container_name: kafka
+
+volumes:
+  mystorage:
