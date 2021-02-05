@@ -27,6 +27,14 @@ public class DetectorController {
         return map;
     }
 
+    //For kb8
+    @GetMapping(path = "/pinga")
+    public @ResponseBody String ciao()
+    {
+        return "ponga";
+    }
+
+
     //GET http://localhost:1234/host/all    -   Utilizzata per test
     @GetMapping(path = "/host/all")
     public @ResponseBody Map<String, Detector> getAllDetector()
