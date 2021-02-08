@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 
 services:
 
@@ -6,6 +6,10 @@ services:
     build:
       context: .
       dockerfile: fault_detector/Dockerfile
+    environment:
+      KAFKA_ADDRESS: ${KAFKA_ADDRESS}
+      KAFKA_LOGGING_TOPIC: ${KAFKA_LOGGING_TOPIC}
+      FDHBPERIOD: ${FDHBPERIOD}
     ports:
       - "8080:1234"
     container_name: fault_detector
