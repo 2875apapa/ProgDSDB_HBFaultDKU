@@ -11,7 +11,7 @@ services:
       KAFKA_LOGGING_TOPIC: ${KAFKA_LOGGING_TOPIC}
       FDHBPERIOD: ${FDHBPERIOD}
     ports:
-      - "8080:1234"
+      - "8080:8080"
     container_name: fault_detector
     restart: always
 
