@@ -24,7 +24,8 @@ public class DetectorController {
     {
         HashMap<String, String> map = new HashMap<>();
         map.put("serviceStatus", "up");
-        map.put("dbStatus", "up");
+        map.put("dbStatus", "up");  //fittizio
+        System.out.println(" - PING ACK - ");
         return map;
     }
 

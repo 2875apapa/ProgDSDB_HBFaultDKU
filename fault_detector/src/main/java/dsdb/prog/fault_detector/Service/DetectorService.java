@@ -29,6 +29,7 @@ public class DetectorService {
     public void writeMessage(String msg)
     {
         template.send(topic, msg);
+        System.out.println(" ooo Write message su kafka :" + msg + "  -  OK  ooo");
     }
 
     public HashMap<String, Detector> getAllDetector()
@@ -46,6 +47,7 @@ public class DetectorService {
     {
         Instant instant = Instant.now();
         newDetector.setTimere(instant);
+        System.out.println("*** Ricevuto e aggiunto in mappa ping da: " + newDetector.getServiceName() + " - serviceStatus: " + newDetector.getServiceStatus() + " - dbStatus: " + newDetector.getDbStatus() + " ***");
         mapDetector.put(newDetector.getServiceName(), newDetector);
         if(newDetector.getServiceStatus().equals("down") || newDetector.getDbStatus().equals("down"))
         {
